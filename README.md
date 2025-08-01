@@ -426,25 +426,5 @@ npm run lint
 2. Deploy to static hosting (Netlify, Vercel, etc.)
 3. Configure environment variables for API endpoints
 
-## 📝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 🤝 Support
-
-For support and questions:
-- Create an issue in the repository
-- Contact the development team
-- Check the troubleshooting section
-
----
-
-**Built with ❤️ for efficient laboratory inventory management** 
+ 
