@@ -1,4 +1,4 @@
-# 🧪 Lab Inventory Management System (LIMS)
+# [🧪 Lab Inventory Management System (LIMS)](https://frontend-deployment-beige.vercel.app/login)
 
 A comprehensive full-stack web application for managing laboratory inventory with real-time tracking, alerts, and analytics.
 

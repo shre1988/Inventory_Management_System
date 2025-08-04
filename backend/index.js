@@ -17,7 +17,11 @@ const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/inventory'
 
 // CORS configuration for production
 const corsOptions = {
-  origin: process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',') : ['http://localhost:3000', 'http://localhost:5173'],
+  origin: process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',') : [
+    'http://localhost:3000', 
+    'http://localhost:5173',
+    'https://frontend-deployment-beige.vercel.app'
+  ],
   credentials: true,
   optionsSuccessStatus: 200
 };
@@ -445,6 +449,27 @@ app.delete('/admin/users/:id', authMiddleware, roleMiddleware(['Admin']), async 
     console.error('Error deleting user:', err);
     res.status(500).json({ message: 'Server error.' });
   }
+});
+
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Inventory Management System API', 
+    status: 'running',
+    version: '1.0.0',
+    endpoints: {
+      auth: '/auth/login, /auth/register',
+      components: '/components',
+      logs: '/logs/inward/:id, /logs/outward/:id',
+      stats: '/stats/inward, /stats/outward',
+      alerts: '/alerts'
+    }
+  });
+});
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({ status: 'healthy', timestamp: new Date().toISOString() });
 });
 
 app.listen(PORT, () => {
